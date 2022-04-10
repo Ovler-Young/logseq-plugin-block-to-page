@@ -16,7 +16,10 @@ async function main(blockId: string) {
 
   let newBlockContent = "";
   if (!pageRegx.test(firstLine)) {
-    newBlockContent = block.content.replace(firstLine, `[[${firstLine}]]`);
+    newBlockContent = block.content.replace(
+      firstLine,
+      `{{embed [[${firstLine}]]}}`
+    );
   }
 
   await createPageIfNotExist(pageName);
