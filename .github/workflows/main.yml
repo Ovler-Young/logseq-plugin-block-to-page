@@ -29,7 +29,8 @@ jobs:
       - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r logseq-plugin-block-to-page.zip dist demo README.md package.json LICENSE icon.png
-      - name: Release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: logseq-plugin-block-to-page.zip
+        path: logseq-plugin-block-to-page.zip
