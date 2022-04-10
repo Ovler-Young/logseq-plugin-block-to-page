@@ -62,12 +62,18 @@ async function main(blockId: string) {
 
 logseq
   .ready(() => {
-    logseq.Editor.registerSlashCommand("Turn Into Page", async (e) => {
-      main(e.uuid);
-    });
-    logseq.Editor.registerBlockContextMenuItem("Turn into page", async (e) => {
-      main(e.uuid);
-    });
+    logseq.Editor.registerSlashCommand(
+      "Turn Into Page and embed",
+      async (e) => {
+        main(e.uuid);
+      }
+    );
+    logseq.Editor.registerBlockContextMenuItem(
+      "Turn into page and embed",
+      async (e) => {
+        main(e.uuid);
+      }
+    );
   })
   .catch(console.error);
 
